@@ -1,8 +1,6 @@
-
 import core.controller.CalculatorController;
 import core.view.ConsoleView;
 import core.view.View;
-
 
 public class Main {
     public static void main(String[] args) {

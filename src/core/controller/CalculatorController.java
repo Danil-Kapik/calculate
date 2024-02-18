@@ -2,6 +2,7 @@ package core.controller;
 
 import core.model.Calculator;
 import core.model.ComplexCalculator;
+import core.model.decorator.TextDecorator;
 import core.view.View;
 
 public class CalculatorController {
@@ -18,9 +19,11 @@ public class CalculatorController {
         double realPart2 = view.promptForDouble("Введите действительную часть второго комплексного числа: ");
         double imaginaryPart2 = view.promptForDouble("Введите мнимую часть второго комплексного числа: ");
 
-        ComplexCalculator num1 = new ComplexCalculator(realPart1, imaginaryPart1);
-        Calculator num2 = new ComplexCalculator(realPart2, imaginaryPart2) {
-        };
+        Calculator num1 = new ComplexCalculator(realPart1, imaginaryPart1);
+        Calculator num2 = new ComplexCalculator(realPart2, imaginaryPart2);
+
+//        Calculator num1 = new TextDecorator(new ComplexCalculator(realPart1, imaginaryPart1));
+//        Calculator num2 = new TextDecorator(new ComplexCalculator(realPart2, imaginaryPart2));
 
         char operation = view.promptForOperation();
 
