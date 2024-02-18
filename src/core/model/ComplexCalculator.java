@@ -1,6 +1,6 @@
 package core.model;
 
-public class ComplexCalculator extends Number implements ComplexNumber {
+public class ComplexCalculator implements ComplexNumber, Calculator {
     private final double realPart;
     private final double imaginaryPart;
 
@@ -20,21 +20,21 @@ public class ComplexCalculator extends Number implements ComplexNumber {
     }
 
     @Override
-    public Number add(Number other) {
-        ComplexCalculator complexOther = (ComplexCalculator) other;
+    public Calculator add(Calculator other) {
+        ComplexCalculator complexOther = (ComplexCalculator)other;
         return new ComplexCalculator(this.realPart + complexOther.realPart,
                 this.imaginaryPart + complexOther.imaginaryPart);
     }
 
     @Override
-    public Number subtract(Number other) {
+    public Calculator subtract(Calculator other) {
         ComplexCalculator complexOther = (ComplexCalculator) other;
         return new ComplexCalculator(this.realPart - complexOther.realPart,
                 this.imaginaryPart - complexOther.imaginaryPart);
     }
 
     @Override
-    public Number multiply(Number other) {
+    public Calculator multiply(Calculator other) {
         ComplexCalculator complexOther = (ComplexCalculator) other;
         double newReal = this.realPart * complexOther.realPart - this.imaginaryPart * complexOther.imaginaryPart;
         double newImaginary = this.realPart * complexOther.imaginaryPart + this.imaginaryPart * complexOther.realPart;
@@ -42,7 +42,7 @@ public class ComplexCalculator extends Number implements ComplexNumber {
     }
 
     @Override
-    public Number divide(Number other) {
+    public Calculator divide(Calculator other) {
         ComplexCalculator complexOther = (ComplexCalculator) other;
         double denominator = complexOther.realPart * complexOther.realPart + complexOther.imaginaryPart * complexOther.imaginaryPart;
         double newReal = (this.realPart * complexOther.realPart + this.imaginaryPart * complexOther.imaginaryPart) / denominator;

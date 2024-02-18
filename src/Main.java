@@ -1,5 +1,5 @@
 
-import core.controller.controller.CalculatorController;
+import core.controller.CalculatorController;
 import core.view.ConsoleView;
 import core.view.View;
 

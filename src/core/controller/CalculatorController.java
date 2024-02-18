@@ -1,7 +1,7 @@
-package core.controller.controller;
+package core.controller;
 
+import core.model.Calculator;
 import core.model.ComplexCalculator;
-import core.model.Number;
 import core.view.View;
 
 public class CalculatorController {
@@ -19,11 +19,12 @@ public class CalculatorController {
         double imaginaryPart2 = view.promptForDouble("Введите мнимую часть второго комплексного числа: ");
 
         ComplexCalculator num1 = new ComplexCalculator(realPart1, imaginaryPart1);
-        ComplexCalculator num2 = new ComplexCalculator(realPart2, imaginaryPart2);
+        Calculator num2 = new ComplexCalculator(realPart2, imaginaryPart2) {
+        };
 
         char operation = view.promptForOperation();
 
-        Number result;
+        Calculator result;
         switch (operation) {
             case '+':
                 result = num1.add(num2);
